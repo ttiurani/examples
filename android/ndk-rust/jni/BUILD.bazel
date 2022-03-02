@@ -1,0 +1,25 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@rules_rust//rust:defs.bzl", "rust_shared_library")
+
+deps = [
+    "//third_party/cargo:jni"
+]
+
+srcs = glob(["src/**"])
+
+rust_shared_library(
+    name = "ndk_rust_jni",
+    deps = deps,
+    srcs = srcs,
+)
+
+cc_import(
+    name = "ndk_rust_jni_wrapper",
+    shared_library = ":ndk_rust_jni",
+)
+
+# cc_library(
+#     name = "ndk_rust_jni_wrapper",
+#     srcs = [":ndk_rust_jni"],
+# )

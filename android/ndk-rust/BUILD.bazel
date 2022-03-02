@@ -1,0 +1,6 @@
+android_binary(
+    name = "ndk_rust",
+    manifest = "//app/src/main:AndroidManifest.xml",
+    custom_package = "com.example.android",
+    deps = ["//app/src/main/java/com/example/android:ndk_rust_lib"],
+)

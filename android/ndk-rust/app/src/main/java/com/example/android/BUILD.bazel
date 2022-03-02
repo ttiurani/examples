@@ -1,0 +1,16 @@
+package(default_visibility = ["//visibility:public"])
+
+android_library(
+    name = "ndk_rust_lib",
+    srcs = [
+        "MainActivity.java",
+        "JNICallback.java",
+    ],
+    manifest = "//app/src/main:AndroidManifest.xml",
+    resource_files = ["//app/src/main:res"],
+    deps = [
+        "//jni:ndk_rust_jni_wrapper",
+        "@maven//:androidx_appcompat_appcompat",
+        "@maven//:androidx_constraintlayout_constraintlayout",
+    ],
+)
