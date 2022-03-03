@@ -13,16 +13,16 @@
 Running:
 
 ```
-bazel build //:ndk_rust --sandbox_debug --verbose_failures --test_output=streamed --fat_apk_cpu=arm64-v8a,x86_64
+bazel build //:ndk_rust --sandbox_debug --verbose_failures --test_output=streamed --fat_apk_cpu=arm64-v8a,x86,x86_64
 ```
 
-builds an APK with a rust shared library with the two architectures:
+builds an APK with a rust shared library with the chosen architectures:
 
 ```
 $ zipinfo bazel-bin/ndk_rust.apk | head -5
 Archive:  bazel-bin/ndk_rust.apk
-Zip file size: 1766289 bytes, number of entries: 349
--rw----     2.0 fat       14 b- stor 10-Jan-01 00:00 nativedeps
--rw----     2.0 fat     7448 b- defN 10-Jan-01 00:00 lib/arm64-v8a/libndk_rust.so
--rw----     2.0 fat     7104 b- defN 10-Jan-01 00:00 lib/x86_64/libndk_rust.so
+Zip file size: 5104553 bytes, number of entries: 349
+-rw----     2.0 fat  4385888 b- defN 10-Jan-01 00:00 lib/arm64-v8a/libndk_rust_jni.so
+-rw----     2.0 fat  3884392 b- defN 10-Jan-01 00:00 lib/x86/libndk_rust_jni.so
+-rw----     2.0 fat  4379960 b- defN 10-Jan-01 00:00 lib/x86_64/libndk_rust_jni.so
 ```

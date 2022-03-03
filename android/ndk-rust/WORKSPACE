@@ -30,7 +30,7 @@ rust_repository_set(
     version = RUST_VERSION,
     rustfmt_version = RUST_VERSION,
     exec_triple = "x86_64-apple-darwin",
-    extra_target_triples=["aarch64-linux-android", "x86_64-linux-android"]
+    extra_target_triples=["aarch64-linux-android", "i686-linux-android", "x86_64-linux-android"]
 )
 
 load("//third_party/cargo:crates.bzl", "raze_fetch_remote_crates")

@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements JNICallback {
 
     // Used to load the rust library on application startup.
     static {
-        System.loadLibrary("ndk_rust");
+        System.loadLibrary("ndk_rust_jni");
     }
 
     TextView helloWorldTextView;
