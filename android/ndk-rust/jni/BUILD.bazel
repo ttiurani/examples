@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@rules_rust//rust:defs.bzl", "rust_shared_library")
+load("@rules_rust//rust:defs.bzl", "rust_library")
 
 deps = [
     "//third_party/cargo:jni"
@@ -8,18 +8,10 @@ deps = [
 
 srcs = glob(["src/**"])
 
-rust_shared_library(
-    name = "ndk_rust_jni",
+# Use the same name for the label as parent folder because libndk_rust.so is what is actually
+# put into the android APK, regardless of the name value here.
+rust_library(
+    name = "ndk_rust",
     deps = deps,
     srcs = srcs,
 )
-
-cc_import(
-    name = "ndk_rust_jni_wrapper",
-    shared_library = ":ndk_rust_jni",
-)
-
-# cc_library(
-#     name = "ndk_rust_jni_wrapper",
-#     srcs = [":ndk_rust_jni"],
-# )
