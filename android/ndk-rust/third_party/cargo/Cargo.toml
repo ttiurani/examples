@@ -17,7 +17,7 @@ genmode = "Remote"
 default_gen_buildrs = true
 targets = [
     "aarch64-linux-android",
-    "armv7a-linux-androideabi",
+    "arm-linux-androideabi",
     "i686-linux-android",
     "x86_64-linux-android",
 ]

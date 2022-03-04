@@ -13,11 +13,11 @@ bazel_skylib_workspace()
 # Rust
 http_archive(
     name = "rules_rust",
-    sha256 = "84bce6b6a56b74429d226456c1060eddfb97b3dd22567ae5a793e72cc0bd6867",
-    strip_prefix = "rules_rust-a9be87493cad02e192b927e42d66284f21fbe1ec",
+    sha256 = "929d2eea04ec752f03f1f3b8e44c9ca1901ad2902e1e366847032765835c9730",
+    strip_prefix = "rules_rust-2fa92e5a139c7cb64d606718273e295ce756f0f3",
     urls = [
         # Change to rules_rust upstream with one extra commit
-        "https://github.com/ttiurani/rules_rust/archive/a9be87493cad02e192b927e42d66284f21fbe1ec.tar.gz",
+        "https://github.com/ttiurani/rules_rust/archive/2fa92e5a139c7cb64d606718273e295ce756f0f3.tar.gz",
     ],
 )
 load("@rules_rust//rust:repositories.bzl", "rust_register_toolchains", "rust_repository_set")
