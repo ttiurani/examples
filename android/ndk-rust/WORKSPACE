@@ -11,14 +11,13 @@ load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
 bazel_skylib_workspace()
 
 # Rust
-
 http_archive(
     name = "rules_rust",
-    sha256 = "f670898f3ba391ec3cc2b18aef37a92a4f602fa68c9e6cb52d201d0966af369b",
-    strip_prefix = "rules_rust-e7a9b8b1843ffb0e1c6c645590b0ac18b28f11ae",
+    sha256 = "84bce6b6a56b74429d226456c1060eddfb97b3dd22567ae5a793e72cc0bd6867",
+    strip_prefix = "rules_rust-a9be87493cad02e192b927e42d66284f21fbe1ec",
     urls = [
-        # Master branch as of 2022-02-15
-        "https://github.com/bazelbuild/rules_rust/archive/e7a9b8b1843ffb0e1c6c645590b0ac18b28f11ae.tar.gz",
+        # Change to rules_rust upstream with one extra commit
+        "https://github.com/ttiurani/rules_rust/archive/a9be87493cad02e192b927e42d66284f21fbe1ec.tar.gz",
     ],
 )
 load("@rules_rust//rust:repositories.bzl", "rust_register_toolchains", "rust_repository_set")
@@ -30,8 +29,28 @@ rust_repository_set(
     version = RUST_VERSION,
     rustfmt_version = RUST_VERSION,
     exec_triple = "x86_64-apple-darwin",
-    extra_target_triples=["aarch64-linux-android", "i686-linux-android", "x86_64-linux-android"]
+    extra_target_triples=[
+        "arm-linux-androideabi",
+        "aarch64-linux-android",
+        "i686-linux-android",
+        "x86_64-linux-android"
+    ],
 )
+
+# TODO: how to compile on linux?
+# rust_repository_set(
+#     name = "rust_linux_x86_64",
+#     edition = "2018",
+#     version = RUST_VERSION,
+#     rustfmt_version = RUST_VERSION,
+#     exec_triple = "x86_64-unknown-linux-gnu",
+#     extra_target_triples=[
+#         "arm-linux-androideabi",
+#         "aarch64-linux-android",
+#         "i686-linux-android",
+#         "x86_64-linux-android"
+#     ],
+# )
 
 load("//third_party/cargo:crates.bzl", "raze_fetch_remote_crates")
 raze_fetch_remote_crates()

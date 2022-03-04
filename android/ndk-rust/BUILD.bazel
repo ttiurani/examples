@@ -1,3 +1,11 @@
+platform(
+	name = "armeabi_v7a",
+	constraint_values = [
+		"@platforms//cpu:arm", # <- This is armv7 in upstream
+		"@platforms//os:android",
+	],
+)
+
 android_binary(
     name = "ndk_rust",
     manifest = "//app/src/main:AndroidManifest.xml",
