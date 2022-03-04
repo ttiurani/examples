@@ -38,8 +38,6 @@ licenses([
 rust_library(
     name = "same_file",
     srcs = glob(["**/*.rs"]),
-    aliases = {
-    },
     crate_features = [
     ],
     crate_root = "src/lib.rs",
@@ -55,13 +53,5 @@ rust_library(
     version = "1.0.6",
     # buildifier: leave-alone
     deps = [
-    ] + selects.with_or({
-        # cfg(windows)
-        (
-            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
-        ): [
-            "@raze__winapi_util__0_1_5//:winapi_util",
-        ],
-        "//conditions:default": [],
-    }),
+    ],
 )
