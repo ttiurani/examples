@@ -1,14 +1,14 @@
 # Android NDK and Rust with Bazel example
 
-## Setup on OSX
+## Setup
 
 1) Install latest Android Studio
 2) Install correct `build-tools` with `sdkmanager "build-tools;30.0.3"`
 3) Install correct NDK with `sdkmanager "ndk;21.4.7075529"`
-4) Setup `ANDROID_HOME` to point to installation directory, e.g. `export ANDROID_HOME="$HOME/Library/Android/sdk"`.
+4) Setup `ANDROID_HOME` to point to installation directory, e.g. on OSX: `export ANDROID_HOME="$HOME/Library/Android/sdk"`.
 5) Setup `ANDROID_NDK_HOME` to point to the right NDK, e.g. `export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/21.4.7075529"`
 
-## Building the APK on OSX
+## Building the APK
 
 Running:
 
